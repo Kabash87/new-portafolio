@@ -40,12 +40,13 @@ export default function Portfolio() {
     message: "",
   })
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   useEffect(() => {
     setIsVisible(true)
   }, [])
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     
     // Validar que el reCAPTCHA esté completado
@@ -54,17 +55,42 @@ export default function Portfolio() {
       return
     }
     
-    // Aquí puedes agregar la lógica para enviar el formulario
-    console.log("Formulario enviado:", formData)
-    console.log("Token reCAPTCHA:", recaptchaToken)
-    alert("¡Mensaje enviado correctamente!")
-    setFormData({ name: "", email: "", message: "" })
-    setRecaptchaToken(null)
+    setIsSubmitting(true)
     
-    // Resetear el reCAPTCHA
-    const recaptchaElement = document.querySelector('.grecaptcha-badge')?.parentElement as any
-    if (recaptchaElement && recaptchaElement.reset) {
-      recaptchaElement.reset()
+    try {
+      // Crear FormData para FormSubmit.co
+      const submitFormData = new FormData()
+      submitFormData.append('name', formData.name)
+      submitFormData.append('email', formData.email)
+      submitFormData.append('message', formData.message)
+      submitFormData.append('_subject', `Nuevo mensaje de contacto de ${formData.name}`)
+      submitFormData.append('_captcha', 'false') // Ya tenemos reCAPTCHA
+      submitFormData.append('_template', 'table')
+      
+      // Enviar a FormSubmit.co
+      const response = await fetch('https://formsubmit.co/diegohs1503@gmail.com', {
+        method: 'POST',
+        body: submitFormData
+      })
+      
+      if (response.ok) {
+        alert("¡Mensaje enviado correctamente! Te responderé pronto.")
+        setFormData({ name: "", email: "", message: "" })
+        setRecaptchaToken(null)
+        
+        // Resetear el reCAPTCHA
+        const recaptchaElement = document.querySelector('.grecaptcha-badge')?.parentElement as any
+        if (recaptchaElement && recaptchaElement.reset) {
+          recaptchaElement.reset()
+        }
+      } else {
+        throw new Error('Error al enviar el formulario')
+      }
+    } catch (error) {
+      console.error('Error:', error)
+      alert("Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.")
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -694,10 +720,10 @@ export default function Portfolio() {
                   <Button 
                     type="submit" 
                     className="w-full bg-blue-600 hover:bg-blue-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                    disabled={!recaptchaToken}
+                    disabled={!recaptchaToken || isSubmitting}
                   >
                     <Send className="w-4 h-4 mr-2" />
-                    Enviar Mensaje
+                    {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
                   </Button>
                 </form>
               </CardContent>
