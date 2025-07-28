@@ -68,7 +68,7 @@ export default function Portfolio() {
       submitFormData.append('_template', 'table')
       
       // Enviar a FormSubmit.co
-      const response = await fetch('https://formsubmit.co/diegohs1503@gmail.com', {
+      const response = await fetch('https://formsubmit.co/e93ccab8b851a256b09646bfc6b7d94d', {
         method: 'POST',
         body: submitFormData
       })
