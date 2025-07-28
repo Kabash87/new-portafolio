@@ -4,6 +4,7 @@ import type React from "react"
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import ReCAPTCHA from "react-google-recaptcha"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -38,6 +39,7 @@ export default function Portfolio() {
     email: "",
     message: "",
   })
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null)
 
   useEffect(() => {
     setIsVisible(true)
@@ -45,10 +47,29 @@ export default function Portfolio() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    
+    // Validar que el reCAPTCHA esté completado
+    if (!recaptchaToken) {
+      alert("Por favor, completa la verificación de reCAPTCHA")
+      return
+    }
+    
     // Aquí puedes agregar la lógica para enviar el formulario
     console.log("Formulario enviado:", formData)
+    console.log("Token reCAPTCHA:", recaptchaToken)
     alert("¡Mensaje enviado correctamente!")
     setFormData({ name: "", email: "", message: "" })
+    setRecaptchaToken(null)
+    
+    // Resetear el reCAPTCHA
+    const recaptchaElement = document.querySelector('.grecaptcha-badge')?.parentElement as any
+    if (recaptchaElement && recaptchaElement.reset) {
+      recaptchaElement.reset()
+    }
+  }
+
+  const handleRecaptchaChange = (token: string | null) => {
+    setRecaptchaToken(token)
   }
 
   const experiences = [
@@ -662,7 +683,19 @@ export default function Portfolio() {
                       placeholder="Cuéntame sobre tu proyecto..."
                     />
                   </div>
-                  <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 transition-colors duration-300">
+                  <div>
+                    <ReCAPTCHA
+                      sitekey="6LfmLpIrAAAAADf7FPdr-DCPZ0TJE2Kn6AT0pKPO"
+                      onChange={handleRecaptchaChange}
+                      theme="dark"
+                      className="flex justify-center"
+                    />
+                  </div>
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-blue-600 hover:bg-blue-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled={!recaptchaToken}
+                  >
                     <Send className="w-4 h-4 mr-2" />
                     Enviar Mensaje
                   </Button>
