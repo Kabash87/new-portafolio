@@ -1,16 +1,27 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState, useEffect } from "react"
-import Image from "next/image"
-import ReCAPTCHA from "react-google-recaptcha"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import ReCAPTCHA from "react-google-recaptcha";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import {
   Mail,
   Phone,
@@ -29,74 +40,85 @@ import {
   Award,
   ChevronDown,
   BookOpen,
-} from "lucide-react"
+} from "lucide-react";
 
 export default function Portfolio() {
-  const [selectedEducation, setSelectedEducation] = useState<string | null>(null)
-  const [isVisible, setIsVisible] = useState(false)
+  const [selectedEducation, setSelectedEducation] = useState<string | null>(
+    null
+  );
+  const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
-  })
-  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null)
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  });
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true)
-  }, [])
+    setIsVisible(true);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    
+    e.preventDefault();
+
     // Validar que el reCAPTCHA esté completado
     if (!recaptchaToken) {
-      alert("Por favor, completa la verificación de reCAPTCHA")
-      return
+      alert("Por favor, completa la verificación de reCAPTCHA");
+      return;
     }
-    
-    setIsSubmitting(true)
-    
+
+    setIsSubmitting(true);
+
     try {
       // Crear FormData para FormSubmit.co
-      const submitFormData = new FormData()
-      submitFormData.append('name', formData.name)
-      submitFormData.append('email', formData.email)
-      submitFormData.append('message', formData.message)
-      submitFormData.append('_subject', `Nuevo mensaje de contacto de ${formData.name}`)
-      submitFormData.append('_captcha', 'false') // Ya tenemos reCAPTCHA
-      submitFormData.append('_template', 'table')
-      
+      const submitFormData = new FormData();
+      submitFormData.append("name", formData.name);
+      submitFormData.append("email", formData.email);
+      submitFormData.append("message", formData.message);
+      submitFormData.append(
+        "_subject",
+        `Nuevo mensaje de contacto de ${formData.name}`
+      );
+      submitFormData.append("_captcha", "false"); // Ya tenemos reCAPTCHA
+      submitFormData.append("_template", "table");
+
       // Enviar a FormSubmit.co
-      const response = await fetch('https://formsubmit.co/e93ccab8b851a256b09646bfc6b7d94d', {
-        method: 'POST',
-        body: submitFormData
-      })
-      
+      const response = await fetch(
+        "https://formsubmit.co/e93ccab8b851a256b09646bfc6b7d94d",
+        {
+          method: "POST",
+          body: submitFormData,
+        }
+      );
+
       if (response.ok) {
-        alert("¡Mensaje enviado correctamente! Te responderé pronto.")
-        setFormData({ name: "", email: "", message: "" })
-        setRecaptchaToken(null)
-        
+        alert("¡Mensaje enviado correctamente! Te responderé pronto.");
+        setFormData({ name: "", email: "", message: "" });
+        setRecaptchaToken(null);
+
         // Resetear el reCAPTCHA
-        const recaptchaElement = document.querySelector('.grecaptcha-badge')?.parentElement as any
+        const recaptchaElement = document.querySelector(".grecaptcha-badge")
+          ?.parentElement as any;
         if (recaptchaElement && recaptchaElement.reset) {
-          recaptchaElement.reset()
+          recaptchaElement.reset();
         }
       } else {
-        throw new Error('Error al enviar el formulario')
+        throw new Error("Error al enviar el formulario");
       }
     } catch (error) {
-      console.error('Error:', error)
-      alert("Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.")
+      console.error("Error:", error);
+      alert(
+        "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo."
+      );
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   const handleRecaptchaChange = (token: string | null) => {
-    setRecaptchaToken(token)
-  }
+    setRecaptchaToken(token);
+  };
 
   const experiences = [
     {
@@ -136,12 +158,12 @@ export default function Portfolio() {
         "Despliegue de la aplicación y automatización de la BBDD",
       ],
     },
-  ]
+  ];
 
   const projects = [
     {
       id: 1,
-      title: "IT APP | Italian Trattoria",
+      title: "IT APP | Italian Trattoria®",
       description:
         "Aplicación móvil completa para cadena de restaurantes con sistema de pedidos, notificaciones push y panel de administración.",
       technologies: ["Kotlin", "Firebase", "XML", "Room", "Fragmentation"],
@@ -151,6 +173,89 @@ export default function Portfolio() {
     },
     {
       id: 2,
+      title: "Grupo Nexcom® | Portal Empresarial",
+      description:
+        "Plataforma web para Grupo Nexcom con gestión de proyectos, tareas y comunicación interna. Información en tiempo real para visitantes y clientes.",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Strapi CMS",
+        "Ubuntu (Server)",
+      ],
+      image: "/imagenes/i3.png",
+      github: "https://gruponexcom.com/",
+      demo: "https://gruponexcom.com/",
+    },
+    {
+      id: 3,
+      title:
+        "Torrestock | Plataforma para feria de oportunadades para negocios de Torrejón de Ardoz",
+      description:
+        "Desarrollo de páginas web oficiales para eventos municipales con sistema de gestión de contenido.",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Strapi CMS",
+        "Ubuntu (Server)",
+      ],
+      image: "/imagenes/i4.png",
+      github: "https://torrestock.com/",
+      demo: "https://torrestock.com/",
+    },
+    {
+      id: 4,
+      title: "SM Pérez Abogados | Sitio Web para despacho de abogados",
+      description:
+        "Sitio web profesional para despacho de abogados con información de servicios, contacto y blog.",
+      technologies: [
+        "Next.js",
+        "Tailwind CSS",
+        "TypeScript",
+        "Strapi",
+        "SQL",
+        "Next.js",
+      ],
+      image: "/imagenes/i5.png",
+      github: "#",
+      demo: "https://smperezabogadostorrejon.es/",
+    },
+    {
+      id: 5,
+      title: "NexManager | Juego de cromos para dispositivos Android",
+      description:
+        "Juego de cromos para Android con sistema de gestión de colecciones y tienda virtual.",
+      technologies: [
+        "Kotlin",
+        "Firebase",
+        "Android Studio",
+        "Room",
+        "Jetpack Compose",
+      ],
+      image: "/imagenes/i6.png",
+      github: "#",
+      demo: "https://nexmanager.com/",
+    },
+    {
+      id: 6,
+      title: "WhataDuck! | Compra / Venta de articulos de segunda mano",
+      description:
+        "Compra y venta de articulos de segunda mano, pero con muchos patos. Ven y explora WhataDuck! 🦆🦆",
+      technologies: [
+        "React JS",
+        "Bootstrap",
+        "MongoDB",
+        "Render",
+        "reCAPTHA",
+        "Cloudinary",
+      ],
+      image: "/imagenes/i7.jpg",
+      github: "https://github.com/Kabash87/front-whataduck",
+      demo: "https://whataduck.onrender.com/",
+    },
+    {
+      id: 7,
       title: "Meesh Social | Red Social Juvenil (En renovación⚙️)",
       description:
         "Red social juvenil con funcionalidades de chat en tiempo real, publicaciones multimedia y sistema de seguimiento.",
@@ -159,52 +264,7 @@ export default function Portfolio() {
       github: "https://github.com/Kabash87/meesh",
       demo: "https://meesh.epizy.com/modelo/login.php",
     },
-    {
-      id: 3,
-      title: "Grupo Nexcom | Portal Empresarial",
-      description: "Plataforma web para Grupo Nexcom con gestión de proyectos, tareas y comunicación interna. Información en tiempo real para visitantes y clientes.",
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Strapi CMS", "Ubuntu (Server)"],
-      image: "/imagenes/i3.png",
-      github: "https://gruponexcom.com/",
-      demo: "https://gruponexcom.com/",
-    },
-    {
-      id: 4,
-      title: "Torrestock | Plataforma para feria de oportunadades para negocios de Torrejón de Ardoz",
-      description: "Desarrollo de páginas web oficiales para eventos municipales con sistema de gestión de contenido.",
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Strapi CMS", "Ubuntu (Server)"],
-      image: "/imagenes/i4.png",
-      github: "https://torrestock.com/",
-      demo: "https://torrestock.com/",
-    },
-    {
-      id: 5,
-      title: "SM Pérez Abogados | Sitio Web para despacho de abogados",
-      description: "Sitio web profesional para despacho de abogados con información de servicios, contacto y blog.",
-      technologies: ["Next.js", "Tailwind CSS", "TypeScript", "Strapi", "SQL", "Next.js"],
-      image: "/imagenes/i5.png",
-      github: "#",
-      demo: "https://smperezabogadostorrejon.es/",
-    },
-    {
-      id: 6,
-      title: "NexManager | Juego de cromos para dispositivos Android",
-      description: "Juego de cromos para Android con sistema de gestión de colecciones y tienda virtual.",
-      technologies: ["Kotlin", "Firebase", "Android Studio", "Room", "Jetpack Compose"],
-      image: "/imagenes/i6.png",
-      github: "#",
-      demo: "https://nexmanager.com/",
-    },
-    {
-      id: 7,
-      title: "WhataDuck! | Compra / Venta de articulos de segunda mano",
-      description: "Compra y venta de articulos de segunda mano, pero con muchos patos. Ven y explora WhataDuck! 🦆🦆",
-      technologies: ["React JS", "Bootstrap", "MongoDB", "Render", "reCAPTHA", "Cloudinary"],
-      image: "/imagenes/i7.jpg",
-      github: "https://github.com/Kabash87/front-whataduck",
-      demo: "https://whataduck.onrender.com/",
-    },
-  ]
+  ];
 
   const education = [
     {
@@ -237,7 +297,7 @@ export default function Portfolio() {
       website: "https://donboscolatola.edu.ec/",
       certificate: "/imagenes/e3.jpg",
     },
-  ]
+  ];
 
   const skills = [
     "TypeScript",
@@ -267,23 +327,25 @@ export default function Portfolio() {
     "Adobe Illustrator",
     "Render",
     "Vercel",
-    "Herramientas IA"
-  ]
+    "Herramientas IA",
+  ];
 
   const languages = [
     { name: "Inglés", level: "B2+" },
     { name: "Alemán", level: "B1" },
-    { name: "Español", level: "Nativo" }
-    
-  ]
+    { name: "Español", level: "Nativo" },
+  ];
 
   const stats = [
     { icon: Award, label: "Años de Experiencia", value: "5+" },
     { icon: Code, label: "Proyectos Completados", value: "22+" },
-    { icon: BookOpen, label: "Frameworks y Herramientas tecnológicas dominadas", value: "13+" },
+    {
+      icon: BookOpen,
+      label: "Frameworks y Herramientas tecnológicas dominadas",
+      value: "13+",
+    },
     { icon: Coffee, label: "Tazas de Café ☕☕", value: "500+" },
-    
-  ]
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
@@ -296,7 +358,9 @@ export default function Portfolio() {
         </div>
 
         <div
-          className={`relative z-10 max-w-6xl mx-auto px-4 text-center transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+          className={`relative z-10 max-w-6xl mx-auto px-4 text-center transition-all duration-1000 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
         >
           <div className="mb-8 mt-8">
             <Image
@@ -317,29 +381,34 @@ export default function Portfolio() {
           </p>
 
           <p className="text-lg text-gray-400 mb-10 max-w-3xl mx-auto leading-relaxed">
-            Especializado en desarrollo web Full Stack con experiencia en React, Node.js, Next.js, Angular y tecnologías móviles (Android). Apasionado
-            por crear soluciones innovadoras y experiencias digitales excepcionales.
+            Especializado en desarrollo web Full Stack con experiencia en React,
+            Node.js, Next.js, Angular y tecnologías móviles (Android). Siempre
+            con entusiasmo de aprender y desarrollar nuevas ideas. 😎
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <a href="https://drive.google.com/file/d/1thoVydwQJ5YU4qhE5Kiu0UveqHO_nHRT/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-            <Button
-              size="lg"
-              className="bg-white text-gray-900 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 font-semibold text-lg p-6"
+            <a
+              href="https://drive.google.com/file/d/1thoVydwQJ5YU4qhE5Kiu0UveqHO_nHRT/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <Download className="w-5 h-5 mr-2 " />
-              Descargar CV
-            </Button>
+              <Button
+                size="lg"
+                className="bg-white text-gray-900 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 font-semibold text-lg p-6"
+              >
+                <Download className="w-5 h-5 mr-2 " />
+                Descargar CV
+              </Button>
             </a>
             <a href="mailto:diegohs1503@gmail.com">
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-gray-600 text-white hover:bg-gray-800 hover:bg-white transition-all duration-300 bg-transparent font-semibold text-lg p-6"
-            >
-              <Mail className="w-5 h-5 mr-2" />
-              Contactar
-            </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-gray-600 text-white hover:bg-gray-800 hover:bg-white transition-all duration-300 bg-transparent font-semibold text-lg p-6"
+              >
+                <Mail className="w-5 h-5 mr-2" />
+                Contactar
+              </Button>
             </a>
           </div>
 
@@ -358,16 +427,20 @@ export default function Portfolio() {
             >
               <Globe className="w-6 h-6" />
             </a>
-            <a href="https://github.com/Kabash87" className="text-gray-400 hover:text-white transition-colors duration-300">
+            <a
+              href="https://github.com/Kabash87"
+              className="text-gray-400 hover:text-white transition-colors duration-300"
+            >
               <Github className="w-6 h-6" />
             </a>
-            <a href="https://www.linkedin.com/in/diego-hern%C3%A1ndez-1a6423245/" className="text-gray-400 hover:text-white transition-colors duration-300">
+            <a
+              href="https://www.linkedin.com/in/diego-hern%C3%A1ndez-1a6423245/"
+              className="text-gray-400 hover:text-white transition-colors duration-300"
+            >
               <Linkedin className="w-6 h-6" />
             </a>
           </div>
         </div>
-
-        
       </section>
 
       {/* Stats Section */}
@@ -379,7 +452,9 @@ export default function Portfolio() {
                 <div className="bg-gray-700/50 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:bg-gray-600/50 transition-colors duration-300">
                   <stat.icon className="w-8 h-8 text-gray-300" />
                 </div>
-                <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
+                <div className="text-3xl font-bold text-white mb-2">
+                  {stat.value}
+                </div>
                 <div className="text-gray-400 text-sm">{stat.label}</div>
               </div>
             ))}
@@ -397,9 +472,11 @@ export default function Portfolio() {
           <Card className="bg-gray-800/50 border-gray-700 backdrop-blur-sm">
             <CardContent className="p-8">
               <p className="text-gray-300 leading-relaxed text-lg text-center">
-                Poseo una personalidad dinámica y decidida, siempre con amabilidad, respeto y buena atención. Me adapto
-                fácilmente a todos los ambientes. Invierto dedicación en completar mis labores y responsabilidades, soy
-                decidido en cumplir todos mis objetivos, con entusiasmo por aprender cada día más algo nuevo.
+                Poseo una personalidad dinámica y decidida, siempre con
+                amabilidad, respeto y buena atención. Me adapto fácilmente a
+                todos los ambientes. Invierto dedicación en completar mis
+                labores y responsabilidades, soy decidido en cumplir todos mis
+                objetivos, con entusiasmo por aprender cada día más algo nuevo.
               </p>
             </CardContent>
           </Card>
@@ -408,10 +485,13 @@ export default function Portfolio() {
         {/* Proyectos */}
         <section className="scroll-mt-20">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">Proyectos Destacados</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">
+              Proyectos Destacados
+            </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6"></div>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Una selección de mis trabajos más recientes y proyectos en los que he participado
+              Una selección de mis trabajos más recientes y proyectos en los que
+              he participado
             </p>
           </div>
 
@@ -432,34 +512,53 @@ export default function Portfolio() {
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <CardHeader>
-                  <CardTitle className="text-xl text-white">{project.title}</CardTitle>
-                  <CardDescription className="text-gray-400">{project.description}</CardDescription>
+                  <CardTitle className="text-xl text-white">
+                    {project.title}
+                  </CardTitle>
+                  <CardDescription className="text-gray-400">
+                    {project.description}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech, i) => (
-                      <Badge key={i} variant="outline" className="border-gray-600 text-gray-300">
+                      <Badge
+                        key={i}
+                        variant="outline"
+                        className="border-gray-600 text-gray-300"
+                      >
                         {tech}
                       </Badge>
                     ))}
                   </div>
                   <div className="flex gap-4">
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="border-gray-600 text-gray-300 hover:bg-gray-700 bg-transparent"
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      
-                      <Github className="w-4 h-4 mr-2" />
-                      Código
-                    </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="border-gray-600 text-gray-300 hover:bg-gray-700 bg-transparent"
+                      >
+                        <Github className="w-4 h-4 mr-2" />
+                        Código
+                      </Button>
                     </a>
-                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                     <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                     <ExternalLink className="w-4 h-4 mr-2" /></a>
-                      Demo
-                    </Button>
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button
+                        size="sm"
+                        className="bg-blue-600 hover:bg-blue-700"
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Demo
+                      </Button>
+                    </a>
                   </div>
                 </CardContent>
               </Card>
@@ -470,7 +569,9 @@ export default function Portfolio() {
         {/* Experiencia Laboral */}
         <section className="scroll-mt-20">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">Experiencia Laboral</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">
+              Experiencia Laboral
+            </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
           </div>
           <div className="space-y-8">
@@ -482,7 +583,9 @@ export default function Portfolio() {
                 <CardHeader>
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                     <div>
-                      <CardTitle className="text-2xl text-white">{exp.position}</CardTitle>
+                      <CardTitle className="text-2xl text-white">
+                        {exp.position}
+                      </CardTitle>
                       <CardDescription className="text-lg font-medium text-gray-300">
                         {exp.company} • {exp.type}
                       </CardDescription>
@@ -502,7 +605,10 @@ export default function Portfolio() {
                 <CardContent>
                   <ul className="space-y-3">
                     {exp.description.map((item, i) => (
-                      <li key={i} className="flex items-start gap-3 text-gray-300">
+                      <li
+                        key={i}
+                        className="flex items-start gap-3 text-gray-300"
+                      >
                         <ArrowRight className="w-4 h-4 mt-1 text-blue-500 flex-shrink-0" />
                         {item}
                       </li>
@@ -517,7 +623,9 @@ export default function Portfolio() {
         {/* Educación */}
         <section className="scroll-mt-20">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">Educación y Formación</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">
+              Educación y Formación
+            </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
           </div>
           <div className="space-y-6">
@@ -533,7 +641,9 @@ export default function Portfolio() {
                       <CardTitle className="text-xl text-white group-hover:text-blue-400 transition-colors">
                         {edu.title}
                       </CardTitle>
-                      <CardDescription className="text-lg font-medium text-gray-300">{edu.institution}</CardDescription>
+                      <CardDescription className="text-lg font-medium text-gray-300">
+                        {edu.institution}
+                      </CardDescription>
                       <div className="flex items-center gap-2 text-gray-400 mt-2">
                         <ExternalLink className="w-4 h-4" />
                         <a
@@ -556,7 +666,10 @@ export default function Portfolio() {
                         <MapPin className="w-4 h-4" />
                         <span className="text-sm">{edu.location}</span>
                       </div>
-                      <Badge variant="secondary" className="bg-gray-700 text-gray-300">
+                      <Badge
+                        variant="secondary"
+                        className="bg-gray-700 text-gray-300"
+                      >
                         {edu.level}
                       </Badge>
                     </div>
@@ -572,7 +685,9 @@ export default function Portfolio() {
           {/* Competencias Técnicas */}
           <section>
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-white mb-4">Competencias Técnicas</h2>
+              <h2 className="text-3xl font-bold text-white mb-4">
+                Competencias Técnicas
+              </h2>
               <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
             </div>
             <Card className="bg-gray-800/50 border-gray-700 backdrop-blur-sm">
@@ -602,9 +717,17 @@ export default function Portfolio() {
               <CardContent className="p-6">
                 <div className="space-y-4">
                   {languages.map((lang, index) => (
-                    <div key={index} className="flex justify-between items-center p-3 rounded-lg bg-gray-700/30">
-                      <span className="font-medium text-white">{lang.name}</span>
-                      <Badge variant="secondary" className="bg-gray-700 text-gray-300">
+                    <div
+                      key={index}
+                      className="flex justify-between items-center p-3 rounded-lg bg-gray-700/30"
+                    >
+                      <span className="font-medium text-white">
+                        {lang.name}
+                      </span>
+                      <Badge
+                        variant="secondary"
+                        className="bg-gray-700 text-gray-300"
+                      >
                         {lang.level}
                       </Badge>
                     </div>
@@ -621,7 +744,8 @@ export default function Portfolio() {
             <h2 className="text-4xl font-bold text-white mb-4">Contacto</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6"></div>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              ¿Tienes un proyecto en mente? ¡Me encantaría escuchar sobre él! Envíame un mensaje y hablemos.
+              ¿Tienes un proyecto en mente? ¡Me encantaría escuchar sobre él!
+              Envíame un mensaje y hablemos.
             </p>
           </div>
 
@@ -655,7 +779,9 @@ export default function Portfolio() {
                       </div>
                       <div>
                         <h3 className="font-semibold text-white">Ubicación</h3>
-                        <p className="text-gray-400">Alcalá de Henares, España</p>
+                        <p className="text-gray-400">
+                          Alcalá de Henares, España
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -668,7 +794,10 @@ export default function Portfolio() {
               <CardContent className="p-6">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-300 mb-2"
+                    >
                       Nombre
                     </label>
                     <Input
@@ -676,13 +805,18 @@ export default function Portfolio() {
                       type="text"
                       required
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
                       className="bg-gray-700/50 border-gray-600 text-white placeholder-gray-400 focus:border-blue-500"
                       placeholder="Tu nombre completo"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-300 mb-2"
+                    >
                       Email
                     </label>
                     <Input
@@ -690,13 +824,18 @@ export default function Portfolio() {
                       type="email"
                       required
                       value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
                       className="bg-gray-700/50 border-gray-600 text-white placeholder-gray-400 focus:border-blue-500"
                       placeholder="tu@email.com"
                     />
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-gray-300 mb-2"
+                    >
                       Mensaje
                     </label>
                     <Textarea
@@ -704,7 +843,9 @@ export default function Portfolio() {
                       required
                       rows={5}
                       value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, message: e.target.value })
+                      }
                       className="bg-gray-700/50 border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 resize-none"
                       placeholder="Cuéntame sobre tu proyecto..."
                     />
@@ -717,8 +858,8 @@ export default function Portfolio() {
                       className="flex justify-center"
                     />
                   </div>
-                  <Button 
-                    type="submit" 
+                  <Button
+                    type="submit"
                     className="w-full bg-blue-600 hover:bg-blue-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                     disabled={!recaptchaToken || isSubmitting}
                   >
@@ -733,7 +874,10 @@ export default function Portfolio() {
       </main>
 
       {/* Modal para certificaciones */}
-      <Dialog open={!!selectedEducation} onOpenChange={() => setSelectedEducation(null)}>
+      <Dialog
+        open={!!selectedEducation}
+        onOpenChange={() => setSelectedEducation(null)}
+      >
         <DialogContent className="max-w-4xl max-h-[90vh] overflow-auto bg-gray-800 border-gray-700">
           <DialogHeader>
             <DialogTitle className="text-xl text-white">
@@ -742,7 +886,10 @@ export default function Portfolio() {
           </DialogHeader>
           <div className="mt-4">
             <Image
-              src={education.find((edu) => edu.id === selectedEducation)?.certificate || "/placeholder.svg"}
+              src={
+                education.find((edu) => edu.id === selectedEducation)
+                  ?.certificate || "/placeholder.svg"
+              }
               alt="Certificación"
               width={800}
               height={600}
@@ -756,8 +903,12 @@ export default function Portfolio() {
       <footer className="bg-gray-900 border-t border-gray-800 py-12 mt-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-white mb-4">Diego Hernández</h3>
-            <p className="text-gray-400 mb-6">Desarrollador de Aplicaciones Multiplataforma</p>
+            <h3 className="text-2xl font-bold text-white mb-4">
+              Diego Hernández
+            </h3>
+            <p className="text-gray-400 mb-6">
+              Desarrollador de Aplicaciones Multiplataforma
+            </p>
             <div className="flex justify-center gap-6 mb-8">
               <a
                 href="mailto:diegohs1503@gmail.com"
@@ -773,10 +924,16 @@ export default function Portfolio() {
               >
                 <Globe className="w-6 h-6" />
               </a>
-              <a href="https://github.com/Kabash87" className="text-gray-400 hover:text-white transition-colors duration-300">
+              <a
+                href="https://github.com/Kabash87"
+                className="text-gray-400 hover:text-white transition-colors duration-300"
+              >
                 <Github className="w-6 h-6" />
               </a>
-              <a href="https://www.linkedin.com/in/diego-hern%C3%A1ndez-1a6423245/" className="text-gray-400 hover:text-white transition-colors duration-300">
+              <a
+                href="https://www.linkedin.com/in/diego-hern%C3%A1ndez-1a6423245/"
+                className="text-gray-400 hover:text-white transition-colors duration-300"
+              >
                 <Linkedin className="w-6 h-6" />
               </a>
             </div>
@@ -784,5 +941,5 @@ export default function Portfolio() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
