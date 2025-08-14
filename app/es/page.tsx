@@ -349,8 +349,8 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
-      {/* Header with Language Switcher */}
-      <header className="w-full flex justify-end items-center px-2 sm:px-6 md:px-8 py-4 sm:py-6 fixed top-0 left-0 z-30 bg-transparent">
+      {/* Language Switcher (static, top of page) */}
+      <div className="w-full flex justify-end items-center px-2 sm:px-6 md:px-8 pt-4 sm:pt-6">
         <div className="flex gap-1 sm:gap-2 items-center bg-gray-800/80 rounded-full px-2 sm:px-4 py-1.5 sm:py-2 shadow-lg border border-gray-700 backdrop-blur-md">
           <a
             href="/es"
@@ -376,7 +376,7 @@ export default function Portfolio() {
             Deutsch
           </a>
         </div>
-      </header>
+      </div>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-800/90"></div>
@@ -411,7 +411,7 @@ export default function Portfolio() {
           <p className="text-lg text-gray-400 mb-10 max-w-3xl mx-auto leading-relaxed">
             Especializado en desarrollo web Full Stack con experiencia en React,
             Node.js, Next.js, Angular y tecnologías móviles (Android). Siempre
-            con entusiasmo de aprender y desarrollar nuevas ideas. 😎
+            con entusiasmo de aprender y desarrollar nuevas ideas.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
