@@ -42,7 +42,7 @@ import {
 
 export default function Portfolio() {
   const [selectedEducation, setSelectedEducation] = useState<string | null>(
-    null
+    null,
   );
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({
@@ -76,7 +76,7 @@ export default function Portfolio() {
       submitFormData.append("message", formData.message);
       submitFormData.append(
         "_subject",
-        `Neue Kontaktanfrage von ${formData.name}`
+        `Neue Kontaktanfrage von ${formData.name}`,
       );
       submitFormData.append("_captcha", "false"); // Wir haben bereits reCAPTCHA
       submitFormData.append("_template", "table");
@@ -87,12 +87,12 @@ export default function Portfolio() {
         {
           method: "POST",
           body: submitFormData,
-        }
+        },
       );
 
       if (response.ok) {
         alert(
-          "Nachricht erfolgreich gesendet! Ich werde mich in Kürze bei Ihnen melden."
+          "Nachricht erfolgreich gesendet! Ich werde mich in Kürze bei Ihnen melden.",
         );
         setFormData({ name: "", email: "", message: "" });
         setRecaptchaToken(null);
@@ -109,7 +109,7 @@ export default function Portfolio() {
     } catch (error) {
       console.error("Fehler:", error);
       alert(
-        "Beim Senden der Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
+        "Beim Senden der Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
       );
     } finally {
       setIsSubmitting(false);
@@ -417,7 +417,7 @@ export default function Portfolio() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <a
-              href="https://drive.google.com/file/d/1thoVydwQJ5YU4qhE5Kiu0UveqHO_nHRT/view?usp=sharing"
+              href="https://drive.google.com/file/d/1A9WaE26o83pQc1eJogEwcsBPhApKKsZp/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -44,7 +44,7 @@ import {
 
 export default function Portfolio() {
   const [selectedEducation, setSelectedEducation] = useState<string | null>(
-    null
+    null,
   );
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({
@@ -78,7 +78,7 @@ export default function Portfolio() {
       submitFormData.append("message", formData.message);
       submitFormData.append(
         "_subject",
-        `New contact message from ${formData.name}`
+        `New contact message from ${formData.name}`,
       );
       submitFormData.append("_captcha", "false"); // Already have reCAPTCHA
       submitFormData.append("_template", "table");
@@ -89,7 +89,7 @@ export default function Portfolio() {
         {
           method: "POST",
           body: submitFormData,
-        }
+        },
       );
 
       if (response.ok) {
@@ -414,7 +414,7 @@ export default function Portfolio() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <a
-              href="https://drive.google.com/file/d/1JLmA6XGItAMIrMZ9A7pJvSbMfumKUKai/view?usp=sharing"
+              href="https://drive.google.com/file/d/1A9WaE26o83pQc1eJogEwcsBPhApKKsZp/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
             >

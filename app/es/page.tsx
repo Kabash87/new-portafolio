@@ -44,7 +44,7 @@ import {
 
 export default function Portfolio() {
   const [selectedEducation, setSelectedEducation] = useState<string | null>(
-    null
+    null,
   );
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({
@@ -78,7 +78,7 @@ export default function Portfolio() {
       submitFormData.append("message", formData.message);
       submitFormData.append(
         "_subject",
-        `Nuevo mensaje de contacto de ${formData.name}`
+        `Nuevo mensaje de contacto de ${formData.name}`,
       );
       submitFormData.append("_captcha", "false"); // Ya tenemos reCAPTCHA
       submitFormData.append("_template", "table");
@@ -89,7 +89,7 @@ export default function Portfolio() {
         {
           method: "POST",
           body: submitFormData,
-        }
+        },
       );
 
       if (response.ok) {
@@ -109,7 +109,7 @@ export default function Portfolio() {
     } catch (error) {
       console.error("Error:", error);
       alert(
-        "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo."
+        "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.",
       );
     } finally {
       setIsSubmitting(false);
@@ -123,15 +123,34 @@ export default function Portfolio() {
   const experiences = [
     {
       company: "Grupo Nexcom",
-      position: "Desarrollador de aplicaciones",
-      period: "2025",
+      position: "Técnico de Sistemas",
+      period: "[08/2025 – 01/2026]",
       location: "Torrejón de Ardoz, Madrid, España",
-      type: "Prácticas Laborales",
+      type: "",
       description: [
-        "Desarrollo de proyectos web utilizando distintos frameworks de JavaScript",
-        "Instalación de bases de datos y programas CMS para mejorar el manejo de datos internos",
-        "Manejo de servidores virtuales utilizando Linux",
-        "Desarrollo de páginas web para eventos oficiales de la ciudad",
+        "• Soporte técnico y resolución de incidencias en entornos Windows/Linux.",
+        "• Resolución de incidencias de hardware y software.",
+        "• Administración y mantenimiento de sistemas.",
+        "• Gestión de servicios, usuarios, permisos y accesos.",
+        "• Diagnóstico y resolución de problemas técnicos.",
+        "• Documentación de procedimientos y configuraciones.",
+        "• Configuración de red, puertos, DNS y servicios.",
+        "• Optimización de parámetros de ciberseguridad.",
+      ],
+    },
+    {
+      company: "Grupo Nexcom",
+      position: "Desarrollador Full-Stack",
+      period: "[04/2025 – 10/2025]",
+      location: "Torrejón de Ardoz, Madrid, España",
+      type: "",
+      description: [
+        "• Desarrollo de aplicaciones web utilizando React y Angular.",
+        "• Implementación de interfaces responsive con HTML, CSS y JavaScript.",
+        "• Desarrollo Backend con Java (Spring Boot)",
+        "• Integración de APIs REST y gestión de datos.",
+        "• Trabajo colaborativo con control de versiones Git.",
+        "• Mantenimiento y mejora de funcionalidades existentes.",
       ],
     },
     {
@@ -139,23 +158,12 @@ export default function Portfolio() {
       position: "Desarrollador de software",
       period: "2024 - 2025",
       location: "Madrid, España",
-      type: "Proyecto",
+      type: "Practicas Laboraes",
       description: [
-        "Desarrollo de una aplicación móvil para la cadena de restaurantes en Android",
-        "Desarrollo de un CMS con react-admin para la administración de datos",
-        "Configuración de un proyecto en Firebase para almacenar datos y notificaciones en tiempo real",
-      ],
-    },
-    {
-      company: "Meesh Social",
-      position: "Desarrollador Full Stack",
-      period: "2022 - 2023",
-      location: "Quito, Ecuador",
-      type: "Proyecto de Red Social juvenil",
-      description: [
-        "Programación Full Stack",
-        "Responsable en la organización del grupo de trabajo",
-        "Despliegue de la aplicación y automatización de la BBDD",
+        "• Desarrollo de interfaces para aplicación móvil conectada a Firebase.",
+        "• Creación de vistas dinámicas (menú, promociones, cupones).",
+        "• Desarrollo de un CMS web en React (react-admin) para gestión de contenidos.",
+        "• Mejora de experiencia de usuario y adaptación a distintos dispositivos.",
       ],
     },
   ];
@@ -163,16 +171,6 @@ export default function Portfolio() {
   const projects = [
     {
       id: 1,
-      title: "IT APP | Italian Trattoria®",
-      description:
-        "Aplicación móvil completa para cadena de restaurantes con sistema de pedidos, notificaciones push y panel de administración.",
-      technologies: ["Kotlin", "Firebase", "XML", "Room", "Fragmentation"],
-      image: "/imagenes/i1.png",
-      github: "https://github.com/Kabash87/IT-APP",
-      demo: "https://info.it-backend.es/",
-    },
-    {
-      id: 2,
       title: "Grupo Nexcom® | Portal Empresarial",
       description:
         "Plataforma web para Grupo Nexcom con gestión de proyectos, tareas y comunicación interna. Información en tiempo real para visitantes y clientes.",
@@ -186,6 +184,23 @@ export default function Portfolio() {
       image: "/imagenes/i3.png",
       github: "https://gruponexcom.com/",
       demo: "https://gruponexcom.com/",
+    },
+    {
+      id: 2,
+      title:
+        "AprenderParaSerFeliz | Plataforma para asociaciones sin fin de lucro en España",
+      description:
+        "Desarrollo de plataforma web para asociación sin fin de lucro con gestión de eventos, donaciones y voluntariado. Información en tiempo real para visitantes y miembros.",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Strapi CMS",
+        "Ubuntu (Server)",
+      ],
+      image: "/imagenes/i8.png",
+      github: "https://aprenderparaserfeliz.com/",
+      demo: "https://aprenderparaserfeliz.com/",
     },
     {
       id: 3,
@@ -204,6 +219,7 @@ export default function Portfolio() {
       github: "https://torrestock.com/",
       demo: "https://torrestock.com/",
     },
+
     {
       id: 4,
       title: "SM Pérez Abogados | Sitio Web para despacho de abogados",
@@ -223,6 +239,17 @@ export default function Portfolio() {
     },
     {
       id: 5,
+      title: "IT APP | Italian Trattoria®",
+      description:
+        "Aplicación móvil completa para cadena de restaurantes con sistema de pedidos, notificaciones push y panel de administración.",
+      technologies: ["Kotlin", "Firebase", "XML", "Room", "Fragmentation"],
+      image: "/imagenes/i1.png",
+      github: "https://github.com/Kabash87/IT-APP",
+      demo: "https://info.it-backend.es/",
+    },
+
+    {
+      id: 6,
       title: "NexManager | Juego de cromos para dispositivos Android",
       description:
         "Juego de cromos para Android con sistema de gestión de colecciones y tienda virtual.",
@@ -238,7 +265,7 @@ export default function Portfolio() {
       demo: "https://nexmanager.com/",
     },
     {
-      id: 6,
+      id: 7,
       title: "WhataDuck! | Compra / Venta de articulos de segunda mano",
       description:
         "Compra y venta de articulos de segunda mano, pero con muchos patos. Ven y explora WhataDuck! 🦆🦆",
@@ -255,7 +282,7 @@ export default function Portfolio() {
       demo: "https://whataduck.onrender.com/",
     },
     {
-      id: 7,
+      id: 8,
       title: "Meesh Social | Red Social Juvenil (En renovación⚙️)",
       description:
         "Red social juvenil con funcionalidades de chat en tiempo real, publicaciones multimedia y sistema de seguimiento.",
@@ -321,6 +348,9 @@ export default function Portfolio() {
     "Git",
     "GitHub",
     "Linux (Server)",
+    "Ubuntu",
+    "Docker",
+    "AWS",
     "Power BI",
     "Office",
     "Adobe Photoshop",
@@ -416,7 +446,7 @@ export default function Portfolio() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <a
-              href="https://drive.google.com/file/d/1thoVydwQJ5YU4qhE5Kiu0UveqHO_nHRT/view?usp=sharing"
+              href="https://drive.google.com/file/d/1A9WaE26o83pQc1eJogEwcsBPhApKKsZp/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -500,11 +530,16 @@ export default function Portfolio() {
           <Card className="bg-gray-800/50 border-gray-700 backdrop-blur-sm">
             <CardContent className="p-8">
               <p className="text-gray-300 leading-relaxed text-lg text-center">
-                Poseo una personalidad dinámica y decidida, siempre con
-                amabilidad, respeto y buena atención. Me adapto fácilmente a
-                todos los ambientes. Invierto dedicación en completar mis
-                labores y responsabilidades, soy decidido en cumplir todos mis
-                objetivos, con entusiasmo por aprender cada día más algo nuevo.
+                Grado Superior en Desarrollo de Aplicaciones Multiplataforma
+                (DAM) y formación Bootcamp (1 año) como Desarrollador
+                Full-Stack. Experiencia en el desarrollo de aplicaciones web
+                completas, tanto en backend como en frontend, así como en
+                desarrollo de aplicaciones móviles, aplicadas a empresas,
+                instituciones y proyectos personales. Adicionalmente, he
+                trabajado en administración de sistemas Windows/Linux y
+                resolución de incidencias, incluyendo tareas básicas de
+                ciberseguridad. También cuento con experiencia prestando soporte
+                técnico a nivel de software y hardware.
               </p>
             </CardContent>
           </Card>
