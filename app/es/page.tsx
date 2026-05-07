@@ -122,48 +122,75 @@ export default function Portfolio() {
 
   const experiences = [
     {
-      company: "Grupo Nexcom",
-      position: "Técnico de Sistemas",
-      period: "[08/2025 – 01/2026]",
-      location: "Torrejón de Ardoz, Madrid, España",
-      type: "",
+      company: "AlCampo",
+      position: "Operador de Sistemas",
+      period: "[04/2025 – Presente]",
+      location: "Madrid, España",
+      type: "Jornada Completa",
       description: [
-        "• Soporte técnico y resolución de incidencias en entornos Windows/Linux.",
-        "• Resolución de incidencias de hardware y software.",
-        "• Administración y mantenimiento de sistemas.",
-        "• Gestión de servicios, usuarios, permisos y accesos.",
-        "• Diagnóstico y resolución de problemas técnicos.",
-        "• Documentación de procedimientos y configuraciones.",
-        "• Configuración de red, puertos, DNS y servicios.",
-        "• Optimización de parámetros de ciberseguridad.",
+        "Monitorización de sistemas y servicios.",
+        "Diagnóstico y resolución de incidencias técnicas.",
+        "Gestión de copias de seguridad (backups) y restauraciones.",
+        "Gestión de usuarios, permisos y accesos en distintos entornos.",
+        "Elaboración de documentación técnica, procedimientos y configuraciones.",
+        "Configuración de red, puertos, DNS y servicios.",
+      ],
+    },
+    {
+      company: "Grupo El Corte Inglés",
+      position: "Técnico de TI (CAU)",
+      period: "[03/2026]",
+      location: "Madrid, España",
+      type: "Contrato Temporal",
+      description: [
+        "Configuración y despliegue de equipos informáticos mediante herramientas de gestión MDM.",
+        "Instalación y mantenimiento de aplicaciones corporativas y soluciones de seguridad (antivirus, políticas de protección, etc.).",
+        "Diagnóstico y resolución de incidencias técnicas tanto de hardware como de software.",
+        "Elaboración y actualización de documentación técnica, procedimientos y configuraciones.",
+      ],
+    },
+    {
+      company: "Offshore Tech",
+      position: "Técnico de TI",
+      period: "[02/2026]",
+      location: "San Fernando, Madrid, España",
+      type: "Contrato por obra o servicio",
+      description: [
+        "Configuración de dispositivos móviles utilizando herramientas de MDM para proyecto de Grupo Renfe.",
+        "Instalación de aplicaciones corporativas y herramientas de seguridad (antivirus).",
+        "Diagnóstico y resolución de incidencias técnicas en hardware y software.",
+        "Configuración y mantenimiento de equipos informáticos.",
+      ],
+    },
+    {
+      company: "Grupo Nexcom",
+      position: "Técnico de TI",
+      period: "[12/2025 – 02/2026]",
+      location: "Torrejón de Ardoz, Madrid, España",
+      type: "Independiente",
+      description: [
+        "Soporte técnico y resolución de incidencias en entornos Windows/Linux.",
+        "Resolución de incidencias de hardware y software.",
+        "Administración y mantenimiento de sistemas.",
+        "Gestión de servicios, usuarios, permisos y accesos.",
+        "Diagnóstico y resolución de problemas técnicos.",
+        "Configuración de red, puertos, DNS y servicios.",
+        "Optimización de parámetros de ciberseguridad.",
       ],
     },
     {
       company: "Grupo Nexcom",
       position: "Desarrollador Full-Stack",
-      period: "[04/2025 – 10/2025]",
+      period: "[03/2025 – 05/2025]",
       location: "Torrejón de Ardoz, Madrid, España",
-      type: "",
+      type: "Prácticas profesionales",
       description: [
-        "• Desarrollo de aplicaciones web utilizando React y Angular.",
-        "• Implementación de interfaces responsive con HTML, CSS y JavaScript.",
-        "• Desarrollo Backend con Java (Spring Boot)",
-        "• Integración de APIs REST y gestión de datos.",
-        "• Trabajo colaborativo con control de versiones Git.",
-        "• Mantenimiento y mejora de funcionalidades existentes.",
-      ],
-    },
-    {
-      company: "IT Italian Trattoria",
-      position: "Desarrollador de software",
-      period: "2024 - 2025",
-      location: "Madrid, España",
-      type: "Practicas Laboraes",
-      description: [
-        "• Desarrollo de interfaces para aplicación móvil conectada a Firebase.",
-        "• Creación de vistas dinámicas (menú, promociones, cupones).",
-        "• Desarrollo de un CMS web en React (react-admin) para gestión de contenidos.",
-        "• Mejora de experiencia de usuario y adaptación a distintos dispositivos.",
+        "Desarrollo de aplicaciones web utilizando React y Angular.",
+        "Implementación de interfaces responsive con HTML, CSS y JavaScript.",
+        "Desarrollo Backend con Java (Spring Boot)",
+        "Integración de APIs REST y gestión de datos.",
+        "Trabajo colaborativo con control de versiones Git.",
+        "Mantenimiento y mejora de funcionalidades existentes.",
       ],
     },
   ];
@@ -361,7 +388,7 @@ export default function Portfolio() {
   ];
 
   const languages = [
-    { name: "Inglés", level: "B2+" },
+    { name: "Inglés", level: "B2" },
     { name: "Alemán", level: "B1" },
     { name: "Español", level: "Nativo" },
   ];
@@ -422,7 +449,7 @@ export default function Portfolio() {
         >
           <div className="mb-8 mt-8">
             <Image
-              src="/profile.jpg"
+              src="/profile2.jpg"
               alt="Diego Hernández"
               width={200}
               height={200}
@@ -435,7 +462,7 @@ export default function Portfolio() {
           </h1>
 
           <p className="text-2xl md:text-2xl text-gray-300 mb-8 font-light">
-            Desarrollador de Aplicaciones Multiplataforma
+            Técnico Informático - Desarrollador de Aplicaciones
           </p>
 
           <p className="text-lg text-gray-400 mb-10 max-w-3xl mx-auto leading-relaxed">
@@ -970,7 +997,7 @@ export default function Portfolio() {
               Diego Hernández
             </h3>
             <p className="text-gray-400 mb-6">
-              Desarrollador de Aplicaciones Multiplataforma
+              Técnico Informático - Desarrollador de Aplicaciones
             </p>
             <div className="flex justify-center gap-6 mb-8">
               <a

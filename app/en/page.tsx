@@ -120,40 +120,74 @@ export default function Portfolio() {
 
   const experiences = [
     {
+      company: "Auchan Retail Spain",
+      position: "System Operations Technician",
+      period: "[04/2025 – Present]",
+      location: "Madrid, España",
+      type: "Full-time",
+      description: [
+        "Monitoring of systems and services.",
+        "Diagnosis and resolution of technical incidents.",
+        "Management of backups and restorations.",
+        "User, permissions, and access management in different environments.",
+        "Elaboration of technical documentation, procedures, and configurations.",
+        "Network configuration, ports, DNS, and services.",
+      ],
+    },
+    {
+      company: "El Corte Inglés Group",
+      position: "IT Technician (Helpdesk)",
+      period: "[03/2026]",
+      location: "Madrid, España",
+      type: "Temporary Contract",
+      description: [
+        "Configuration and deployment of computer equipment using MDM management tools.",
+        "Installation and maintenance of corporate applications and security solutions (antivirus, protection policies, etc.).",
+        "Diagnosis and resolution of technical issues, both hardware and software.",
+        "Creation and updating of technical documentation, procedures, and configurations.",
+      ],
+    },
+    {
+      company: "Offshore Tech",
+      position: "IT Technician",
+      period: "[02/2026]",
+      location: "San Fernando, Madrid, España",
+      type: "Contract for work or service",
+      description: [
+        "Configuration of mobile devices using MDM tools for a proyect from Grupo Renfe.",
+        "Installation of corporate applications and security tools (antivirus).",
+        "Diagnosis and resolution of technical issues in hardware and software.",
+        "Configuration and maintenance of computer equipment.",
+      ],
+    },
+    {
+      company: "Grupo Nexcom",
+      position: "IT Support Technician",
+      period: "[12/2025 – 02/2026]",
+      location: "Torrejón de Ardoz, Madrid, España",
+      type: "Freelance",
+      description: [
+        "Technical support and troubleshooting in Windows/Linux environments.",
+        "System administration and maintenance.",
+        "Management of services, users, permissions, and access.",
+        "Diagnosis and resolution of technical problems.",
+        "Configuration of networks, ports, DNS, and services.",
+        "Optimization of cybersecurity parameters.",
+      ],
+    },
+    {
       company: "Grupo Nexcom",
       position: "Apps Developer",
-      period: "2025",
+      period: "[03/2025 – 05/2025]",
       location: "Torrejón de Ardoz, Madrid, Spain",
       type: "Internship",
       description: [
-        "Web project development using various JavaScript frameworks",
-        "Database and CMS installation to improve internal data management",
-        "Virtual server management using Linux",
-        "Development of web pages for official city events",
-      ],
-    },
-    {
-      company: "IT Italian Trattoria®",
-      position: "Software Developer",
-      period: "2024 - 2025",
-      location: "Madrid, Spain",
-      type: "Project",
-      description: [
-        "Mobile app development for the restaurant chain on Android",
-        "CMS development with react-admin for data management",
-        "Firebase project setup for real-time data and notifications",
-      ],
-    },
-    {
-      company: "Meesh | Social Network (Demo)",
-      position: "Full Stack Developer",
-      period: "2022 - 2023",
-      location: "Quito, Ecuador",
-      type: "Youth Social Network Project",
-      description: [
-        "Full Stack programming",
-        "Team organization leader",
-        "App deployment and database automation",
+        "• Web application development using React and Angular.",
+        "• Implementation of responsive interfaces with HTML, CSS, and JavaScript.",
+        "• Backend development with Java (Spring Boot).",
+        "• Integration of REST APIs and data management.",
+        "• Collaborative work with Git version control.",
+        "• Maintenance and improvement of existing functionalities.",
       ],
     },
   ];
@@ -329,7 +363,7 @@ export default function Portfolio() {
   ];
 
   const languages = [
-    { name: "English", level: "B2+" },
+    { name: "English", level: "B2" },
     { name: "German", level: "B1" },
     { name: "Spanish", level: "Native" },
   ];
@@ -390,7 +424,7 @@ export default function Portfolio() {
         >
           <div className="mb-8 mt-8">
             <Image
-              src="/profile.jpg"
+              src="/profile2.jpg"
               alt="Diego Hernández"
               width={200}
               height={200}
@@ -403,7 +437,7 @@ export default function Portfolio() {
           </h1>
 
           <p className="text-2xl md:text-2xl text-gray-300 mb-8 font-light">
-            Multiplatform Apps Developer
+            IT Technician - Apps Developer
           </p>
 
           <p className="text-lg text-gray-400 mb-10 max-w-3xl mx-auto leading-relaxed">
@@ -498,11 +532,14 @@ export default function Portfolio() {
           <Card className="bg-gray-800/50 border-gray-700 backdrop-blur-sm">
             <CardContent className="p-8">
               <p className="text-gray-300 leading-relaxed text-lg text-center">
-                I have a determined personality, always presenting kindness and
-                respect. I adapt easily to all environments. I invest dedication
-                in completing my tasks and responsibilities, I am determined to
-                achieve all my goals, and I am enthusiastic about learning
-                something new every day.
+                High Degree in Multiplatform Apps Development (FPGS DAM) and
+                one-year Bootcamp training as a Full-Stack Developer. Experience
+                in developing complete web applications, both backend and
+                frontend, as well as mobile applications, for businesses,
+                institutions, and personal projects. Additionally, I have
+                experience in Windows/Linux system administration and incident
+                resolution, including basic cybersecurity tasks. I also have
+                experience providing software and hardware technical support.
               </p>
             </CardContent>
           </Card>
@@ -936,9 +973,7 @@ export default function Portfolio() {
             <h3 className="text-2xl font-bold text-white mb-4">
               Diego Hernández
             </h3>
-            <p className="text-gray-400 mb-6">
-              Multiplatform Apps Developer | Full Stack Web Developer
-            </p>
+            <p className="text-gray-400 mb-6">IT Technician - Apps Developer</p>
             <div className="flex justify-center gap-6 mb-8">
               <a
                 href="mailto:diegohs1503@gmail.com"

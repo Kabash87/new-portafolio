@@ -332,7 +332,7 @@ export default function Portfolio() {
   ];
 
   const languages = [
-    { name: "Englisch", level: "B2+" },
+    { name: "Englisch", level: "B2" },
     { name: "Deutsch", level: "B1" },
     { name: "Spanisch", level: "Muttersprache" },
   ];
@@ -406,7 +406,7 @@ export default function Portfolio() {
           </h1>
 
           <p className="text-2xl md:text-2xl text-gray-300 mb-8 font-light">
-            Multiplatform Apps Developer
+            IT Technician - Apps Developer
           </p>
 
           <p className="text-lg text-gray-400 mb-10 max-w-3xl mx-auto leading-relaxed">
