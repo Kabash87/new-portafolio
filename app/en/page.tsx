@@ -122,7 +122,7 @@ export default function Portfolio() {
     {
       company: "Auchan Retail Spain",
       position: "System Operations Technician",
-      period: "[04/2025 – Present]",
+      period: "[04/2026 – Present]",
       location: "Madrid, España",
       type: "Full-time",
       description: [

@@ -124,7 +124,7 @@ export default function Portfolio() {
     {
       company: "AlCampo",
       position: "Operador de Sistemas",
-      period: "[04/2025 – Presente]",
+      period: "[04/2026 – Presente]",
       location: "Madrid, España",
       type: "Jornada Completa",
       description: [

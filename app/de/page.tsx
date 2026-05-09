@@ -122,40 +122,75 @@ export default function Portfolio() {
 
   const experiences = [
     {
-      company: "Grupo Nexcom",
-      position: "Apps Developer",
-      period: "2025",
-      location: "Torrejón de Ardoz, Madrid, Spanien",
-      type: "Arbeitspraktikum",
-      description: [
-        "Entwicklung von Webprojekten mit verschiedenen JavaScript-Frameworks",
-        "Installation von Datenbanken und CMS-Programmen zur Verbesserung der internen Datenverwaltung",
-        "Verwaltung von virtuellen Servern unter Linux",
-        "Entwicklung von Websites für Rathausveranstaltungen",
-      ],
-    },
-    {
-      company: "IT Italian Trattoria",
-      position: "Software Developer",
-      period: "2024 - 2025",
+      company: "Auchan Retail Spain",
+      position: "Systemoperator",
+      period: "[04/2026 – Heute]",
       location: "Madrid, Spanien",
-      type: "Projekt",
+      type: "Vollzeit",
       description: [
-        "Entwicklung einer Android App für die Restaurantkette",
-        "Entwicklung eines CMS mit react-admin zur Datenverwaltung",
-        "Einrichtung eines Firebase-Projekts zur Speicherung von Daten und Echtzeit-Benachrichtigungen",
+        "Überwachung von Systemen und Diensten.",
+        "Diagnose und Behebung technischer Störungen.",
+        "Verwaltung von Sicherungskopien (Backups) und Wiederherstellungen.",
+        "Benutzer-, Berechtigungs- und Zugriffsverwaltung in verschiedenen Umgebungen.",
+        "Erstellung technischer Dokumentationen, Verfahren und Konfigurationen.",
+        "Konfiguration von Netzwerken, Ports, DNS und Diensten.",
       ],
     },
     {
-      company: "Meesh Social",
-      position: "Full Stack Developer",
-      period: "2022 - 2023",
-      location: "Quito, Ecuador",
-      type: "Jugend-Social-Media-Projekt",
+      company: "Grupo El Corte Inglés",
+      position: "IT-Techniker (CAU)",
+      period: "[03/2026]",
+      location: "Madrid, Spanien",
+      type: "Befristeter Vertrag",
       description: [
-        "Full Stack Programmierung",
-        "Verantwortlich für die Organisation der Arbeitsgruppe",
-        "Anwendungsbereitstellung und Automatisierung der Datenbank",
+        "Konfiguration und Bereitstellung von IT-Geräten mithilfe von MDM-Verwaltungstools.",
+        "Installation und Wartung von Unternehmensanwendungen sowie Sicherheitslösungen (Antivirus, Schutzrichtlinien usw.).",
+        "Diagnose und Behebung technischer Probleme sowohl im Hardware- als auch im Softwarebereich.",
+        "Erstellung und Aktualisierung technischer Dokumentationen, Verfahren und Konfigurationen.",
+      ],
+    },
+    {
+      company: "Offshore Tech",
+      position: "IT-Techniker",
+      period: "[02/2026]",
+      location: "San Fernando, Madrid, Spanien",
+      type: "Projektvertrag",
+      description: [
+        "Konfiguration mobiler Geräte mit MDM-Tools für ein Projekt der Renfe-Gruppe.",
+        "Installation von Unternehmensanwendungen und Sicherheitstools (Antivirus).",
+        "Diagnose und Behebung technischer Probleme in Hardware und Software.",
+        "Konfiguration und Wartung von IT-Geräten.",
+      ],
+    },
+    {
+      company: "Grupo Nexcom",
+      position: "IT-Techniker",
+      period: "[12/2025 – 02/2026]",
+      location: "Torrejón de Ardoz, Madrid, Spanien",
+      type: "Selbstständig",
+      description: [
+        "Technischer Support und Fehlerbehebung in Windows-/Linux-Umgebungen.",
+        "Behebung von Hardware- und Softwareproblemen.",
+        "Administration und Wartung von Systemen.",
+        "Verwaltung von Diensten, Benutzern, Berechtigungen und Zugängen.",
+        "Diagnose und Lösung technischer Probleme.",
+        "Konfiguration von Netzwerken, Ports, DNS und Diensten.",
+        "Optimierung von Cybersicherheitsparametern.",
+      ],
+    },
+    {
+      company: "Grupo Nexcom",
+      position: "Full-Stack-Entwickler",
+      period: "[03/2025 – 05/2025]",
+      location: "Torrejón de Ardoz, Madrid, Spanien",
+      type: "Berufspraktikum",
+      description: [
+        "Entwicklung von Webanwendungen mit React und Angular.",
+        "Implementierung responsiver Benutzeroberflächen mit HTML, CSS und JavaScript.",
+        "Backend-Entwicklung mit Java (Spring Boot).",
+        "Integration von REST-APIs und Datenverwaltung.",
+        "Teamarbeit mit Git-Versionskontrolle.",
+        "Wartung und Verbesserung bestehender Funktionen.",
       ],
     },
   ];
@@ -163,19 +198,9 @@ export default function Portfolio() {
   const projects = [
     {
       id: 1,
-      title: "IT APP | Italian Trattoria®",
+      title: "Grupo Nexcom® | Unternehmensportal",
       description:
-        "Vollständige mobile Anwendung für eine Restaurantkette mit Bestellsystem, Push-Benachrichtigungen und Admin-Panel.",
-      technologies: ["Kotlin", "Firebase", "XML", "Room", "Fragmentation"],
-      image: "/imagenes/i1.png",
-      github: "https://github.com/Kabash87/IT-APP",
-      demo: "https://info.it-backend.es/",
-    },
-    {
-      id: 2,
-      title: "Grupo Nexcom® | Webplattform",
-      description:
-        "Webplattform für Grupo Nexcom mit Projekt-, Aufgaben- und interner Kommunikationsverwaltung. Echtzeit-Informationen für Besucher und Kunden.",
+        "Webplattform für Grupo Nexcom mit Projekt-, Aufgaben- und interner Kommunikationsverwaltung. Echtzeitinformationen für Besucher und Kunden.",
       technologies: [
         "Next.js",
         "TypeScript",
@@ -188,9 +213,26 @@ export default function Portfolio() {
       demo: "https://gruponexcom.com/",
     },
     {
+      id: 2,
+      title:
+        "AprenderParaSerFeliz | Plattform für gemeinnützige Vereine in Spanien",
+      description:
+        "Entwicklung einer Webplattform für eine gemeinnützige Organisation mit Verwaltung von Veranstaltungen, Spenden und Freiwilligenarbeit. Echtzeitinformationen für Besucher und Mitglieder.",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Strapi CMS",
+        "Ubuntu (Server)",
+      ],
+      image: "/imagenes/i8.png",
+      github: "https://aprenderparaserfeliz.com/",
+      demo: "https://aprenderparaserfeliz.com/",
+    },
+    {
       id: 3,
       title:
-        "Torrestock | Plattform für eine Geschäftsmessen für Unternehmen in Torrejón de Ardoz",
+        "Torrestock | Plattform für eine Handelsmesse für Unternehmen in Torrejón de Ardoz",
       description:
         "Entwicklung offizieller Webseiten für städtische Veranstaltungen mit Content-Management-System.",
       technologies: [
@@ -204,11 +246,12 @@ export default function Portfolio() {
       github: "https://torrestock.com/",
       demo: "https://torrestock.com/",
     },
+
     {
       id: 4,
       title: "SM Pérez Abogados | Webseite für eine Anwaltskanzlei",
       description:
-        "Webseite für eine Anwaltskanzlei mit Informationen zu Dienstleistungen, Kontakt und einem Blog.",
+        "Professionelle Webseite für eine Anwaltskanzlei mit Informationen zu Dienstleistungen, Kontakt und Blog.",
       technologies: [
         "Next.js",
         "Tailwind CSS",
@@ -223,9 +266,20 @@ export default function Portfolio() {
     },
     {
       id: 5,
-      title: "NexManager | Sammelkartenspiel für Android",
+      title: "IT APP | Italian Trattoria®",
       description:
-        "Sammelkartenspiel für Android mit Sammelverwaltungssystem und virtuellem Shop.",
+        "Vollständige mobile Anwendung für eine Restaurantkette mit Bestellsystem, Push-Benachrichtigungen und Administrationspanel.",
+      technologies: ["Kotlin", "Firebase", "XML", "Room", "Fragmentation"],
+      image: "/imagenes/i1.png",
+      github: "https://github.com/Kabash87/IT-APP",
+      demo: "https://info.it-backend.es/",
+    },
+
+    {
+      id: 6,
+      title: "NexManager | Sammelkartenspiel für Android-Geräte",
+      description:
+        "Sammelkartenspiel für Android mit Verwaltungssystem für Sammlungen und virtuellem Shop.",
       technologies: [
         "Kotlin",
         "Firebase",
@@ -238,7 +292,7 @@ export default function Portfolio() {
       demo: "https://nexmanager.com/",
     },
     {
-      id: 6,
+      id: 7,
       title: "WhataDuck! | Kauf / Verkauf von Second-Hand-Artikeln",
       description:
         "Kauf und Verkauf von Second-Hand-Artikeln, aber mit vielen Enten. Komm und entdecke WhataDuck! 🦆🦆",
@@ -247,7 +301,7 @@ export default function Portfolio() {
         "Bootstrap",
         "MongoDB",
         "Render",
-        "reCAPTHA",
+        "reCAPTCHA",
         "Cloudinary",
       ],
       image: "/imagenes/i7.jpg",
@@ -255,11 +309,10 @@ export default function Portfolio() {
       demo: "https://whataduck.onrender.com/",
     },
     {
-      id: 7,
-      title:
-        "Meesh Social | Jugend-Social-Media-Plattform (In Überarbeitung⚙️)",
+      id: 8,
+      title: "Meesh Social | Jugendsoziales Netzwerk (In Überarbeitung ⚙️)",
       description:
-        "Jugend-Social-Media-Plattform mit Echtzeit-Chat-Funktionen, Multimedia-Beiträgen und einem Follow-System.",
+        "Jugendsoziales Netzwerk mit Echtzeit-Chatfunktionen, Multimedia-Beiträgen und Followersystem.",
       technologies: ["PHP", "MySQL", "CSS3", "JavaScript"],
       image: "/imagenes/i2.png",
       github: "https://github.com/Kabash87/meesh",
@@ -935,7 +988,7 @@ export default function Portfolio() {
             <h3 className="text-2xl font-bold text-white mb-4">
               Diego Hernández
             </h3>
-            <p className="text-gray-400 mb-6">Multiplatform Apps Developer</p>
+            <p className="text-gray-400 mb-6">IT Technician - Apps Developer</p>
             <div className="flex justify-center gap-6 mb-8">
               <a
                 href="mailto:diegohs1503@gmail.com"
