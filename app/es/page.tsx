@@ -122,31 +122,32 @@ export default function Portfolio() {
 
   const experiences = [
     {
-      company: "AlCampo",
-      position: "Operador de Sistemas",
+      company: "AlCampo - Oficinas Centrales",
+      position: "Técnico en Operaciones de Sistemas Informáticos",
       period: "[04/2026 – Presente]",
       location: "Madrid, España",
       type: "Jornada Completa",
       description: [
         "Monitorización de sistemas y servicios.",
         "Diagnóstico y resolución de incidencias técnicas.",
+        "Desarrollo de aplicaciones internas para automatización de procesos.",
         "Gestión de copias de seguridad (backups) y restauraciones.",
         "Gestión de usuarios, permisos y accesos en distintos entornos.",
         "Elaboración de documentación técnica, procedimientos y configuraciones.",
-        "Configuración de red, puertos, DNS y servicios.",
       ],
     },
     {
-      company: "Grupo El Corte Inglés",
+      company: "Grupo El Corte Inglés - Oficinas Centrales",
       position: "Técnico de TI (CAU)",
       period: "[03/2026]",
       location: "Madrid, España",
       type: "Contrato Temporal",
       description: [
         "Configuración y despliegue de equipos informáticos mediante herramientas de gestión MDM.",
-        "Instalación y mantenimiento de aplicaciones corporativas y soluciones de seguridad (antivirus, políticas de protección, etc.).",
+        "Gestión de usuarios, permisos y accesos en distintos entornos.",
+        "Instalación y configuración de aplicaciones corporativas y herramientas de seguridad (antivirus).",
         "Diagnóstico y resolución de incidencias técnicas tanto de hardware como de software.",
-        "Elaboración y actualización de documentación técnica, procedimientos y configuraciones.",
+        "Configuración de red, puertos, DNS y servicios.",
       ],
     },
     {
@@ -157,25 +158,9 @@ export default function Portfolio() {
       type: "Contrato por obra o servicio",
       description: [
         "Configuración de dispositivos móviles utilizando herramientas de MDM para proyecto de Grupo Renfe.",
-        "Instalación de aplicaciones corporativas y herramientas de seguridad (antivirus).",
+        "Instalación y configuración de aplicaciones corporativas y herramientas de seguridad (antivirus).",
         "Diagnóstico y resolución de incidencias técnicas en hardware y software.",
         "Configuración y mantenimiento de equipos informáticos.",
-      ],
-    },
-    {
-      company: "Grupo Nexcom",
-      position: "Técnico de TI",
-      period: "[12/2025 – 02/2026]",
-      location: "Torrejón de Ardoz, Madrid, España",
-      type: "Independiente",
-      description: [
-        "Soporte técnico y resolución de incidencias en entornos Windows/Linux.",
-        "Resolución de incidencias de hardware y software.",
-        "Administración y mantenimiento de sistemas.",
-        "Gestión de servicios, usuarios, permisos y accesos.",
-        "Diagnóstico y resolución de problemas técnicos.",
-        "Configuración de red, puertos, DNS y servicios.",
-        "Optimización de parámetros de ciberseguridad.",
       ],
     },
     {
@@ -363,9 +348,6 @@ export default function Portfolio() {
     "PHP",
     "Java",
     "Kotlin",
-    "Jetpack Compose",
-    "XML (Android)",
-    "Room (Android)",
     "Python",
     "C++",
     "SQL",
@@ -378,10 +360,6 @@ export default function Portfolio() {
     "Ubuntu",
     "Docker",
     "AWS",
-    "Power BI",
-    "Office",
-    "Adobe Photoshop",
-    "Adobe Illustrator",
     "Render",
     "Vercel",
     "Herramientas IA",
@@ -394,7 +372,7 @@ export default function Portfolio() {
   ];
 
   const stats = [
-    { icon: Award, label: "Años de Experiencia", value: "5+" },
+    { icon: Award, label: "Años de Experiencia", value: "6+" },
     { icon: Code, label: "Proyectos Completados", value: "22+" },
     {
       icon: BookOpen,

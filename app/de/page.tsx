@@ -391,7 +391,7 @@ export default function Portfolio() {
   ];
 
   const stats = [
-    { icon: Award, label: "Jahre Erfahrung", value: "5+" },
+    { icon: Award, label: "Jahre Erfahrung", value: "6+" },
     { icon: Code, label: "Abgeschlossene Projekte", value: "22+" },
     {
       icon: BookOpen,

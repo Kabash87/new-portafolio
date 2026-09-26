@@ -120,8 +120,8 @@ export default function Portfolio() {
 
   const experiences = [
     {
-      company: "Auchan Retail Spain",
-      position: "System Operations Technician",
+      company: "Auchan Retail Spain - Headquarters",
+      position: "Systems Operations & Data Processing Technician",
       period: "[04/2026 – Present]",
       location: "Madrid, España",
       type: "Full-time",
@@ -135,7 +135,7 @@ export default function Portfolio() {
       ],
     },
     {
-      company: "El Corte Inglés Group",
+      company: "El Corte Inglés Group - Headquarters",
       position: "IT Technician (Helpdesk)",
       period: "[03/2026]",
       location: "Madrid, España",
@@ -369,7 +369,7 @@ export default function Portfolio() {
   ];
 
   const stats = [
-    { icon: Award, label: "Years of Experience", value: "5+" },
+    { icon: Award, label: "Years of Experience", value: "6+" },
     { icon: Code, label: "Completed Projects", value: "22+" },
     {
       icon: BookOpen,
