@@ -246,23 +246,15 @@ export default function Portfolio() {
       github: "https://torrestock.com/",
       demo: "https://torrestock.com/",
     },
-
     {
       id: 4,
-      title: "SM Pérez Abogados | Webseite für eine Anwaltskanzlei",
+      title: "Bachaco Financiero | Finanzmanagementsystem",
       description:
-        "Professionelle Webseite für eine Anwaltskanzlei mit Informationen zu Dienstleistungen, Kontakt und Blog.",
-      technologies: [
-        "Next.js",
-        "Tailwind CSS",
-        "TypeScript",
-        "Strapi",
-        "SQL",
-        "Next.js",
-      ],
-      image: "/imagenes/i5.png",
-      github: "#",
-      demo: "https://smperezabogadostorrejon.es/",
+        "Projekt für persönliche Finanzen und Buchhaltung mit Benutzerverwaltung, Transaktionen und Finanzberichtssystem.",
+      technologies: ["Next.js", "CSS", "TypeScript", "PostgreSQL"],
+      image: "/imagenes/i9.png",
+      github: "https://github.com/Kabash87/Bachaco-Financiero",
+      demo: "https://bachaco-financiero.onrender.com/",
     },
     {
       id: 5,

@@ -234,20 +234,13 @@ export default function Portfolio() {
 
     {
       id: 4,
-      title: "SM Pérez Abogados | Sitio Web para despacho de abogados",
+      title: "Bachaco Financiero | Sistema de Gestión Financiera",
       description:
-        "Sitio web profesional para despacho de abogados con información de servicios, contacto y blog.",
-      technologies: [
-        "Next.js",
-        "Tailwind CSS",
-        "TypeScript",
-        "Strapi",
-        "SQL",
-        "Next.js",
-      ],
-      image: "/imagenes/i5.png",
-      github: "#",
-      demo: "https://smperezabogadostorrejon.es/",
+        "Proyecto personal de finanzas y contabilidad con sistema de gestión de usuarios, transacciones y reportes financieros.",
+      technologies: ["Next.js", "CSS", "TypeScript", "PostgreSQL"],
+      image: "/imagenes/i9.png",
+      github: "https://github.com/Kabash87/Bachaco-Financiero",
+      demo: "https://bachaco-financiero.onrender.com/",
     },
     {
       id: 5,
