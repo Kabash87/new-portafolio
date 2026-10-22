@@ -444,7 +444,7 @@ export default function Portfolio() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <a
-              href="https://drive.google.com/file/d/1A9WaE26o83pQc1eJogEwcsBPhApKKsZp/view?usp=sharing"
+              href="https://drive.google.com/file/d/1_Ap58zRfz2f92MDo6O05uFf3D2DB4Tns/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
             >
