@@ -149,7 +149,7 @@ export default function Portfolio() {
         "Diagnóstico y resolución de incidencias técnicas tanto de hardware como de software.",
         "Configuración de red, puertos, DNS y servicios.",
       ],
-    },
+    } /**
     {
       company: "Offshore Tech",
       position: "Técnico de TI",
@@ -162,7 +162,7 @@ export default function Portfolio() {
         "Diagnóstico y resolución de incidencias técnicas en hardware y software.",
         "Configuración y mantenimiento de equipos informáticos.",
       ],
-    },
+    }, */,
     {
       company: "Grupo Nexcom",
       position: "Desarrollador Full-Stack",
@@ -420,7 +420,7 @@ export default function Portfolio() {
         >
           <div className="mb-8 mt-8">
             <Image
-              src="/profile2.jpg"
+              src="/profile3.jpg"
               alt="Diego Hernández"
               width={200}
               height={200}
@@ -433,7 +433,7 @@ export default function Portfolio() {
           </h1>
 
           <p className="text-2xl md:text-2xl text-gray-300 mb-8 font-light">
-            Técnico Informático - Desarrollador de Aplicaciones
+            Técnico Informático - Desarrollador de Aplicaciones Web
           </p>
 
           <p className="text-lg text-gray-400 mb-10 max-w-3xl mx-auto leading-relaxed">

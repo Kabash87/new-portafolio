@@ -147,6 +147,7 @@ export default function Portfolio() {
         "Creation and updating of technical documentation, procedures, and configurations.",
       ],
     },
+    /**
     {
       company: "Offshore Tech",
       position: "IT Technician",
@@ -159,7 +160,7 @@ export default function Portfolio() {
         "Diagnosis and resolution of technical issues in hardware and software.",
         "Configuration and maintenance of computer equipment.",
       ],
-    },
+    }, */
     {
       company: "Grupo Nexcom",
       position: "IT Support Technician",
@@ -417,7 +418,7 @@ export default function Portfolio() {
         >
           <div className="mb-8 mt-8">
             <Image
-              src="/profile2.jpg"
+              src="/profile3.jpg"
               alt="Diego Hernández"
               width={200}
               height={200}
